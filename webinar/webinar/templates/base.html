@@ -1,0 +1,131 @@
+{% load static %}
+{% load cache %}
+<html>
+  <head>
+	<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/searchbox.css">
+	<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/ui.notify.css">
+	<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/bootstrap-lightbox.min.css">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/base/jquery-ui.css" id="theme">
+
+	<script type="text/javascript" src="{% get_static_prefix %}js/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<title>{% block title %}ElasticSearch &amp; Entitlements{% endblock %}</title>
+	{% block extra-head %}
+	{% endblock extra-head %}
+  </head>
+  <body>
+	{% block extra-style %}
+    {% endblock extra-style %}
+	{% block top-navbar %}
+	  <div class="navbar navbar-fixed-top" data-dropdown="dropdown">
+		<div class="fill">
+		  <div class="navbar-inner">
+			<div class="container">
+			  <a class="brand" href="{% url 'home_page' %}">ElasticSearch &amp; Entitlements</a>
+			  {% block search %}
+			  {% endblock search %}
+			  <ul class="nav">
+				{% block navbar %}
+				{% endblock navbar %}
+			  </ul>
+			  {% cache 86400 navbar request.user.pk %}
+			    <ul class="nav pull-right">
+				  {% block pull-right %}
+		          <li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					  <i class="icon-user icon-white"></i>
+					  Select User
+					  <b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+                      <li>
+						<a href="{% url 'search_view' 'D00001' %}">
+						  <i class="icon-white"></i>
+						  D00001
+						</a>
+					  </li>
+                      <li>
+						<a href="{% url 'search_view' 'D00002' %}">
+						  <i class="icon-white"></i>
+						  D00002
+						</a>
+					  </li>
+                      <li>
+						<a href="{% url 'search_view' 'D00003' %}">
+						  <i class="icon-white"></i>
+						  D00003
+						</a>
+					  </li>
+                      <li>
+						<a href="{% url 'search_view' 'D00004' %}">
+						  <i class="icon-white"></i>
+						  D00004
+						</a>
+					  </li>
+					</ul>
+				  </li>
+				  {% endblock pull-right %}
+				</ul>
+			  {% endcache %}
+			</div>
+		  </div>
+		</div>
+	  </div>
+	{% endblock top-navbar %}
+	{% block hero-unit-wrapper %}
+	{% endblock hero-unit-wrapper %}
+	{% block body-container %}
+	<div class="container row-fluid">
+	  {% block left-sidebar-wrapper %}
+	    <div class="left span2 sidebar-left">
+		  {% block left-sidebar %}
+		  {% endblock left-sidebar %}
+		</div>
+	  {% endblock left-sidebar-wrapper %}
+	  {% block content-start %}
+	  <div class="span6">
+      {% endblock content-start %}
+		{% block body-top-matter %}
+		{% endblock body-top-matter %}
+		<div id="content">
+		  {% block content %}
+		  {% endblock content %}
+		</div>
+	  </div>
+	  {% block right-sidebar-wrapper %}
+	    {% block right-sidebar-start %}
+	    <div class="right span3 sidebar-right">
+		{% endblock right-sidebar-start %}
+		  {% block right-sidebar %}
+		  {% endblock right-sidebar %}
+		</div>
+	  {% endblock right-sidebar-wrapper %}
+	</div>
+	{% endblock %}
+    {% block body-scripts %}
+	  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+      <script type="text/javascript">
+		google.load("jqueryui", "1.8.16" );
+		google.load('visualization', '1', {'packages':['corechart']});
+      </script>
+	  <script type="text/javascript" src="{% get_static_prefix %}js/bootstrap.min.js"></script>
+	  <script type="text/javascript" src="{% get_static_prefix %}js/bootstrap-transition.js"></script>
+	  <script type="text/javascript" src="{% get_static_prefix %}js/bootstrap-lightbox.min.js"></script>
+	  <script type="text/javascript" src="{% get_static_prefix %}js/bootstrap-collapse.js"></script>
+	  <script type="text/javascript" src="{% get_static_prefix %}js/bootstrap-tooltip.js"></script>
+	  <script type="text/javascript" src="{% get_static_prefix %}js/bootstrap-popover.js"></script>
+	  <script type="text/javascript" src="{% get_static_prefix %}js/bootstrap-typeahead.js"></script>
+	  <script type="text/javascript" src="{% get_static_prefix %}js/jquery.history.js"></script>
+	  <script type="text/javascript" src="{% get_static_prefix %}js/jquery.notify.min.js"></script>
+	  <script type="text/javascript" src="{% get_static_prefix %}js/jquery.taconite.js"></script>
+	  <script type="text/javascript" src="{% get_static_prefix %}js/app.js"></script>
+	  <script type="text/javascript" src="{% get_static_prefix %}js/asyncify.js"></script>
+	  {% block body-scripts-extra %}
+	  {% endblock body-scripts-extra %}
+	{% endblock body-scripts %}
+	{% block footer-wrapper %}
+    {% endblock footer-wrapper %}
+  </body>
+</html>

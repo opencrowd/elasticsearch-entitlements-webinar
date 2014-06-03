@@ -1,0 +1,30 @@
+{% extends "entitlements/base.html" %}
+
+{% block content %}
+
+<style type="text/css">
+  table, td, th { border: 1px solid black; }
+</style>
+
+<table class="table">
+  <tr>
+	<th>Name</th>
+	<th>Account Type</th>
+	<th>Coverage</th>
+	<th>Balance</tH>
+  </tr>
+  {% for result in results %}
+    <tr>
+	  <td>{{ result.name.0 }}</td>
+	  <td>{{ result.account_type.0 }}</td>
+	  <td>{{ result.coverage.0 }}</td>
+	  <td>{{ result.balance.0 }}</td>
+	</tr>
+  {% endfor %}
+  <tr>
+	<th colspan="2">
+	</th>
+	<th>Total:</th>
+	<th>{{ facets.balance_stats.total }}</th>
+  </tr>
+{% endblock content %}
