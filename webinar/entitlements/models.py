@@ -115,6 +115,7 @@ def create_initial_es():
      d3,
      op4,
      d4)))
+    bulk_request = bulk_request + '\n'
     r = requests.post('http://localhost:9200/_bulk', data=bulk_request)
 
 
