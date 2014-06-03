@@ -12,6 +12,7 @@ This app depends on the __requests__ and __django__ packages.  It
 also requires a running ElasticSearch instance.
 
 You can get it started by:
+
     $ ./manage.py init_demo
     $ ./manage.py runserver
 
