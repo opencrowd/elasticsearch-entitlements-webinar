@@ -1,4 +1,3 @@
-# 2014.06.03 13:21:05 EDT
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from collections import OrderedDict
@@ -79,6 +78,3 @@ def search_view(request, uid):
     return render(request, 'entitlements/search.html', context)
 
 
-
-# decompiled 1 files: 1 okay, 0 failed, 0 verify failed
-# 2014.06.03 13:21:05 EDT

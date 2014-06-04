@@ -1,4 +1,3 @@
-# 2014.06.03 13:21:06 EDT
 from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.contrib import admin
@@ -11,6 +10,3 @@ urlpatterns = patterns(
     url('^accounts/', include('registration.backends.default.urls')),
     url('^search/', include('entitlements.urls'))
     )
-
-# decompiled 1 files: 1 okay, 0 failed, 0 verify failed
-# 2014.06.03 13:21:06 EDT

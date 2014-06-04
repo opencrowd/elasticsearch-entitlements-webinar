@@ -1,4 +1,3 @@
-# 2014.06.03 13:21:06 EDT
 """
 Django settings for webinar project.
 
@@ -33,5 +32,3 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, 'static_dest')
 STATICFILES_DIRS = (os.path.join(PROJECT_DIR, 'static'),)
 AUTH_PROFILE_MODULE = 'entitlements.EntitlementProfile'
 
-# decompiled 1 files: 1 okay, 0 failed, 0 verify failed
-# 2014.06.03 13:21:06 EDT

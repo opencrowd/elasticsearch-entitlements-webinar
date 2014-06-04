@@ -1,4 +1,3 @@
-# 2014.06.03 13:21:05 EDT
 import locale
 from django.template import Library
 register = Library()
@@ -42,7 +41,3 @@ def currency(value, arg = '', symbol = True):
     finally:
         locale.setlocale(locale.LC_ALL, saved)
 
-
-
-# decompiled 1 files: 1 okay, 0 failed, 0 verify failed
-# 2014.06.03 13:21:05 EDT

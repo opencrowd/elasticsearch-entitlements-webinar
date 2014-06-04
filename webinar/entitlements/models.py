@@ -1,4 +1,3 @@
-# 2014.06.03 13:21:04 EDT
 from django.db import models
 from django.contrib.auth.models import User
 import json
@@ -118,7 +117,3 @@ def create_initial_es():
     bulk_request = bulk_request + '\n'
     r = requests.post('http://localhost:9200/_bulk', data=bulk_request)
 
-
-
-# decompiled 1 files: 1 okay, 0 failed, 0 verify failed
-# 2014.06.03 13:21:05 EDT
